@@ -1,0 +1,111 @@
+swagger: "2.0"
+info:
+  description: "浴室预约系统接口"
+  version: "1.0.0"
+  title: "0812"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "registration"
+  description: "资源预约相关"
+schemes:
+- "https"
+- "http"
+paths:
+  /registration/:
+    post:
+      tags:
+       - "resource"
+      summary: "预约资源"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+        "405":
+          description: "Validation exception"
+    get:
+      tags:
+       - "resource"
+       
+      description: 返回所有预约项目。
+
+      summary: "列出所有预约"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+        "405":
+          description: "Validation exception"
+    put:
+      tags:
+       - "resource"
+      summary: "更新预约信息"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+        "405":
+          description: "Validation exception"
+    delete:
+      tags:
+       - "resource"
+      summary: "删除预约信息"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+        "405":
+          description: "Validation exception"
+definitions:
+  Registration:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      createdAt:
+        type: "string"
+        description: "创建时间"
+      updatedAt:
+        type: "string"
+        description: "更新时间"
+
+      creator:
+        type: "string"
+        description: "预约者ID"
+
+      object:
+        type: "string"
+        description: "资源类型"
+        enum:
+        - "浴室"
+        - "洗衣机"
+      beginAt:
+        type: "string"
+        description: "开始时间"
+      endAt:
+        type: "string"
+        description: "结束时间"
+    xml:
+      name: "Order"
+
